@@ -1,14 +1,18 @@
 package com.udacity.bootstrap.service;
 
+import com.udacity.bootstrap.entity.Dog;
+
 import java.util.List;
 
 public interface DogService {
 
-    List<String> findBreeds();
+    List<Dog> retrieveDogs();
 
-    String findBreedsById(Long id);
+    List<String> retrieveDogBreed();
 
-    List<String> findNames();
+    String retrieveDogBreedById(Long id);
+
+    List<String> retrieveDogNames();
 
 
 }
