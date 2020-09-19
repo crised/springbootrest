@@ -5,6 +5,7 @@ import com.udacity.bootstrap.repository.DogRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DogServiceImpl implements DogService {
@@ -27,6 +28,8 @@ public class DogServiceImpl implements DogService {
 
     @Override
     public String retrieveDogBreedById(Long id) {
+        Optional<String> optionalBreed = Optional.ofNullable(dogRepository.findBreedsById(id));
+        String breed = optionalBreed.orElseThrow(DogNotFoundException::new);
         return dogRepository.findBreedsById(id);
     }
 
